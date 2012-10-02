@@ -20,6 +20,8 @@ class BaseMonitor:
 
     zope.interface.implements(zim.monitor.interfaces.IMonitor)
 
+    schema = IBaseMonitor
+
     def __init__(self):
         self.__dict__.update(
             dict((name, self.schema[name].default) for name in self.schema)
