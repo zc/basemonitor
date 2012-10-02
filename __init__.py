@@ -1,6 +1,21 @@
 import zim.monitor.interfaces
 import zope.interface
 
+class IBaseMonitor(zope.interface.Interface):
+
+    name = zope.schema.ASCIILine(
+        title=u'name',
+        description=u'Name of the monitor',
+        required=True,
+        )
+
+    interval = zope.schema.Int(
+        title=u'interval',
+        description=u'Polling interval (seconds)',
+        required=False,
+        default = 300,
+        )
+
 class BaseMonitor:
 
     zope.interface.implements(zim.monitor.interfaces.IMonitor)
