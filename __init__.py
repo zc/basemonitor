@@ -47,3 +47,12 @@ class BaseMonitor:
 
     def get_config(self):
         return dict((name, getattr(self, name)) for name in self.schema)
+
+    def ok(self, callback, uri, message, *args):
+        callback({self.name: {uri: zim.state.good(message % args)}})
+
+    def warn(self, callback, uri, message, *args):
+        callback({self.name: {uri: zim.state.warning(message % args)}})
+
+    def error(self, callback, uri, message, *args):
+        callback({self.name: {uri: zim.state.critical(message % args)}})
