@@ -1,4 +1,6 @@
 
+import logging
+
 def printing_callback(results):
     for mname, mresult in sorted(results.iteritems()):
         print mname
