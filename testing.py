@@ -5,3 +5,6 @@ def printing_callback(results):
         for uri, state in sorted(mresult.iteritems()):
             print ' ', uri, logging.getLevelName(state.state)
             print '   ', state.note
+
+def setUp(test):
+    test.globs['printing_callback'] = printing_callback
